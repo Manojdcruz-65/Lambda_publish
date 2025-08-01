@@ -10,7 +10,7 @@ Automatically track the code of deployed Lambda functions by:
 - Triggering **GitHub Actions** to pull that code into GitHub
 - Enabling **Git-based diffs**, change tracking, and version history
 
-prerequsite
+## prerequsite
      🚨🚨🚨 1.CREATE A GITHUB ACTIONS FLOW WITH A YAML FILE FROM DIRECTORY 
                gitworkflow > gitworkflow.yml
 
