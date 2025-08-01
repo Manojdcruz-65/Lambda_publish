@@ -55,6 +55,7 @@ CloudTrail is now capturing the required publish events.
    - Create a new role with basic Lambda permission
 6.paste the code from above directory called Lambda_1 
 7.Then after creating the role > go to roles then give this permisson's
+
         "lambda:GetFunction",
         "lambda:ListVersionsByFunction",
         "s3:PutObject"
