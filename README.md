@@ -13,5 +13,6 @@ Automatically track the code of deployed Lambda functions by:
 ## ⚙️ Architecture Overview
 
 
-L2G.jpg 
+![L2G](https://github.com/user-attachments/assets/86891bfa-db9b-4c6b-a53c-7e3d7802847a)
+
 
