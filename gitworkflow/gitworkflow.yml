@@ -1,0 +1,32 @@
+name: Sync Raw Lambda Files from S3 to GitHub (Filtered Sync)
+
+on:
+  workflow_dispatch:
+jobs: 
+  sync-s3-to-github:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} # Replace with your actual AWS access key in GitHub Secrets
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # Replace with your actual AWS secret access key in GitHub Secrets
+          aws-region: us-east-1
+
+      - name: Sync raw files from S3 to repository root
+        run: |
+          aws s3 cp s3://your-s3-bucket-name/ ./ --recursive
+
+      - name: Commit and push to GitHub
+        run: |
+          git config user.name "your-github-username" 
+          git config user.email "your-email@example.com"
+
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Sync raw Lambda files from S3"
+          git pull --rebase origin main
+          git push
