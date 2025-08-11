@@ -127,6 +127,21 @@ CloudTrail is now capturing the required publish events.
 Click **Save changes**
 
 
+## ✅ Final Setup Complete
+
+Your automated pipeline is now live! 🎉
+
+Whenever you **publish a new version** of an AWS Lambda function, the pipeline will:
+
+1. **Detect** the publish event via CloudTrail + EventBridge  
+2. **Extract** the Lambda code using AWS Lambda  
+3. **Store** it temporarily in Amazon S3  
+4. **Push** it to GitHub via GitHub Actions  
+5. **Scan** it with SonarQube for code quality and security issues  
+
+No manual steps required — just **publish in Lambda**, and the process handles everything automatically. 🚀
+
+
 ## ✅ Conclusion
 
 This fully automated, event-driven pipeline bridges the gap between **deployed AWS Lambda functions** and **source control visibility**.
@@ -135,7 +150,8 @@ By combining:
 - **CloudTrail + EventBridge** for detecting version publications  
 - **AWS Lambda** for extraction and orchestration  
 - **Amazon S3** for temporary code staging  
-- **GitHub Actions** for syncing to version control  
+- **GitHub Actions** for syncing to version control
+- **SonarQube** for static code analysis, quality gating, and security scanning
 
 You get a **cost-effective**, **serverless**, and **version-aware DevOps solution** that:
 - Maintains a Git-tracked history of production Lambda code  
