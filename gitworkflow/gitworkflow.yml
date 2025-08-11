@@ -58,7 +58,7 @@ jobs:
           do
             echo "Attempt $attempt of $max_attempts..."
             if npx sonar-scanner \
-              -Dsonar.projectKey=Connect_Sharecare_SCCoaching \
+              -Dsonar.projectKey=replace_with_your_projectkey \
               -Dsonar.sources=./ \
               -Dsonar.host.url="${{ secrets.SONAR_URL }}" \
               -Dsonar.token="${{ secrets.SONAR_TOKEN }}" \
