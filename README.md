@@ -1,23 +1,54 @@
-# 🌀 AWS Lambda Version Sync to GitHub (Automated Pipeline)
+# 🌀 AWS Lambda Version Sync to GitHub (Automated Pipeline) + SonarQube Integration
 
-This repository contains the automation to extract AWS Lambda **published versions**, store them in **S3**, and sync the extracted code to **GitHub** using GitHub Actions.
+This repository contains the automation to:
+- Extract **published versions** of AWS Lambda functions
+- Store the extracted code in **Amazon S3**
+- Automatically sync the code to **GitHub** via **GitHub Actions**
+- Trigger **SonarQube (or SonarCloud)** scans for static code analysis
+
+---
 
 ## 📌 Use Case
 
-Automatically track the code of deployed Lambda functions by:
+Automatically track and analyze the code of deployed Lambda functions by:
+
 - Capturing every **published version**
 - Saving the code to **Amazon S3**
-- Triggering **GitHub Actions** to pull that code into GitHub
-- Enabling **Git-based diffs**, change tracking, and version history
+- Triggering **GitHub Actions** to:
+  - Pull the Lambda code into the repository
+  - Run a **SonarQube/SonarCloud** static code analysis scan
+- Enabling:
+  - **Git-based diffs**
+  - **Change tracking**
+  - **Version history**
+  - **Code quality reporting**
 
-## prerequsite
-     🚨🚨🚨 1.CREATE A GITHUB ACTIONS FLOW WITH A YAML FILE FROM DIRECTORY 
-               gitworkflow > gitworkflow.yml
+---
+
+## 🔧 Prerequisite
+
+🚨 **Create a GitHub Actions workflow** from the directory:
+
+🚨 Set up SonarCloud (or SonarQube)
+Option 1: SonarCloud (Cloud-hosted, preferred for ease)
+Go to https://sonarcloud.io
+1.Log in with GitHub
+2.Import your repo
+3.Generate a token:
+     Click on your avatar → My Account → Security → Generate Token
+     Save this token in your GitHub repo secrets as SONAR_TOKEN
+
+Option 2: SonarQube (Self-hosted)
+You need a running SonarQube server with a project set up.
+Generate a token from SonarQube
+Save it in GitHub repo secrets as SONAR_TOKEN
+Also set SONAR_HOST_URL if you're using SonarQube (e.g., http://your-sonarqube-domain)
+
 
 ## ⚙️ Architecture Overview
 
+<img width="1087" height="699" alt="image" src="https://github.com/user-attachments/assets/bccff367-845b-435c-91bc-3b6989961868" />
 
-![L2G](https://github.com/user-attachments/assets/86891bfa-db9b-4c6b-a53c-7e3d7802847a)
 
 
 
